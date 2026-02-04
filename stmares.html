@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: inline-flex;
+            background: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .tab {
+            padding: 10px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            background: transparent;
+        }
+
+        .tab.active {
+            background: #222;
+            color: white;
+        }
+
+        /* Section Content */
+        .content {
+            background: white;
+            width: 320px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            background: #222;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Management System</h2>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab active" onclick="showSection('register')">Register</button>
+        <button class="tab" onclick="showSection('attendance')">Attendance</button>
+        <button class="tab" onclick="showSection('marks')">Marks</button>
+    </div>
+
+    <!-- Register Section -->
+    <div id="register" class="content active">
+        <h3>Student Registration</h3>
+        <input type="text" placeholder="Student Name">
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="Course">
+        <button>Register</button>
+    </div>
+
+    <!-- Attendance Section -->
+    <div id="attendance" class="content">
+        <h3>Attendance</h3>
+        <input type="number" placeholder="Student ID">
+        <input type="number" placeholder="Attendance %">
+        <button>Save</button>
+    </div>
+
+    <!-- Marks Section -->
+    <div id="marks" class="content">
+        <h3>Marks</h3>
+        <input type="number" placeholder="Student ID">
+        <input type="text" placeholder="Subject">
+        <input type="number" placeholder="Marks">
+        <button>Save</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function showSection(sectionId) {
+            let contents = document.querySelectorAll('.content');
+            let tabs = document.querySelectorAll('.tab');
+
+            contents.forEach(c => c.classList.remove('active'));
+            tabs.forEach(t => t.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
